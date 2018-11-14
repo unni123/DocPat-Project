@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "933681916550",
+    "firebase_url": "https://docpat-project.firebaseio.com",
+    "project_id": "docpat-project",
+    "storage_bucket": "docpat-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:933681916550:android:8e2197c8f56654e0",
+        "android_client_info": {
+          "package_name": "com.example.amma.projectdocpat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "933681916550-vmvnn1557n5ji04oalopshpd8mkea00l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.amma.projectdocpat",
+            "certificate_hash": "0d0afd821447f17a0ded36e67a2491429fbe9383"
+          }
+        },
+        {
+          "client_id": "933681916550-ujaa99amciq04jf0bq7rmheurdh4ae2m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC51ACni2S7iBuu_BLj5k3FiKTv3k08bDY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "933681916550-ujaa99amciq04jf0bq7rmheurdh4ae2m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

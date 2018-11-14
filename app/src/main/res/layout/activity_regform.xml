@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".regform">
+
+
+
+        <EditText
+            android:id="@+id/firstnameid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="15px"
+            android:gravity="left"
+            android:hint="Enter First Name" />
+
+    <EditText
+        android:id="@+id/lastnmaeid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="67dp"
+        android:gravity="left"
+        android:hint="Enter last name" />
+
+        <RadioGroup
+            android:id="@+id/rgid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></RadioGroup>
+
+    <EditText
+        android:id="@+id/ageid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="132dp"
+        android:hint="Enter age" />
+    <EditText
+        android:id="@+id/phoneid"
+        android:layout_width="365dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+
+
+        android:layout_marginBottom="465dp"
+        android:hint="Enter ph no" />
+
+    <EditText
+        android:id="@+id/houseid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+
+
+        android:layout_marginBottom="415dp"
+        android:hint="Enter address" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+
+        android:layout_marginBottom="380dp" />
+
+
+    <EditText
+        android:id="@+id/dobid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="240dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:hint="Enter dob" />
+
+
+    <EditText
+        android:id="@+id/Detailsid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="280dp"
+        android:hint="symptoms" />
+
+
+    <Button
+        android:id="@+id/sb"
+        android:layout_width="113dp"
+        android:layout_height="36dp"
+        android:layout_alignParentBottom="true"
+
+        android:layout_alignParentStart="true"
+
+        android:layout_marginBottom="240dp"
+        android:text="Submit" />
+
+</RelativeLayout>
