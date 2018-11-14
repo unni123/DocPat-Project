@@ -25,6 +25,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DateFormat;
+import java.util.Date;
+
 public class regform extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     String[] doc = { "Doctor","Dr.Unni Krishnan(Physician)", "Dr.Seethumol K.s(Cardiologist)", "Dr.Mohemmed Asif(Surgeon)", "Dr.Joseph Phillip(ENT)"};
@@ -61,6 +64,7 @@ int nopt;
         ArrayAdapter<String> aa = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item,doc);
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sp.setAdapter(aa);
+       // submit.setVisibility(View.INVISIBLE);
 
         submit.setOnClickListener(new View.OnClickListener() {
                                       @Override
@@ -89,6 +93,50 @@ int nopt;
                                                   s7 = spvalue;
                                                   s8 = det.getText().toString();
                                                   s9 = phn.getText().toString();
+
+                                              /*validation*/
+                                                  if (s1.trim().length()==0)
+                                                  {
+                                                      String str="[a-zA-Z]";
+                                                      if (s1.trim().matches(str)) {
+                                                          Toast.makeText(regform.this, "use characters", Toast.LENGTH_SHORT).show();
+                                                      }
+
+
+                                                  }
+                                                  else if (s2.trim().length()==0)
+                                                  {
+                                                      String str="[a-zA-Z]";
+                                                      if (s2.trim().matches(str)) {
+                                                          Toast.makeText(regform.this, "use characters", Toast.LENGTH_SHORT).show();
+                                                      }
+                                                  }
+                                                  else if (s4.trim().length()==0) {
+                                                      String regexStr = "^[0-9]*$";
+                                                      if (s4.trim().matches(regexStr)) {
+                                                          Toast.makeText(regform.this, "use characters", Toast.LENGTH_SHORT).show();
+                                                      }
+                                                  }
+                                                  else if (s5.trim().length()==0) {
+
+                                                      Toast.makeText(regform.this, "invalid date format", Toast.LENGTH_SHORT).show();
+                                                  }
+                                                  if (s6.trim().length()==0)
+                                                  {
+                                                      Toast.makeText(regform.this, "enter address", Toast.LENGTH_SHORT).show();
+                                                  }
+
+                                                  if (s8.trim().length()==0)
+                                                  {
+                                                      Toast.makeText(regform.this, "use characters", Toast.LENGTH_SHORT).show();
+                                                  }
+                                                  else if (s9.trim().length()==0) {
+                                                      String regexStr = "^[0-9]*$";
+                                                      if (s9.trim().matches(regexStr)) {
+                                                          Toast.makeText(regform.this, "invalid entry,use numbers", Toast.LENGTH_SHORT).show();
+                                                      }
+                                                  }
+
 
                                                   final FirebaseDatabase database = FirebaseDatabase.getInstance();
                                                   DatabaseReference dbref = database.getReference("ptno");
