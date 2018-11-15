@@ -7,24 +7,23 @@
     tools:context=".regform">
 
 
+    <EditText
+        android:id="@+id/firstnameid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
 
-        <EditText
-            android:id="@+id/firstnameid"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="15px"
-            android:gravity="left"
-            android:hint="Enter First Name" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:gravity="left"
+        android:hint="Enter First Name" />
 
     <EditText
         android:id="@+id/lastnmaeid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="67dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/firstnameid"
         android:gravity="left"
         android:hint="Enter last name" />
 
@@ -38,45 +37,47 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="132dp"
+        android:layout_marginTop="143dp"
         android:hint="Enter age" />
+
     <EditText
         android:id="@+id/phoneid"
         android:layout_width="365dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
 
 
-        android:layout_marginBottom="465dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/lastnmaeid"
         android:hint="Enter ph no" />
 
     <EditText
         android:id="@+id/houseid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
 
 
-        android:layout_marginBottom="415dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/ageid"
         android:hint="Enter address" />
 
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
 
-        android:layout_marginBottom="380dp" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="223dp" />
 
 
     <EditText
         android:id="@+id/dobid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="240dp"
         android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/Detailsid"
         android:hint="Enter dob" />
 
 
@@ -85,9 +86,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="280dp"
+        android:layout_below="@+id/spinner"
         android:hint="symptoms" />
 
 
@@ -99,7 +99,7 @@
 
         android:layout_alignParentStart="true"
 
-        android:layout_marginBottom="240dp"
+        android:layout_marginBottom="153dp"
         android:text="Submit" />
 
 </RelativeLayout>

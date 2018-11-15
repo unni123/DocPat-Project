@@ -1,6 +1,7 @@
 package com.example.amma.projectdocpat;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,7 +21,7 @@ public class doclog extends AppCompatActivity {
     Button B3;
     TextView tv1,tv2;
     int f;
-    String doc_id,doc_pass,doc_name,doc_dep;
+    String doc_id,entered_pass,doc_pass,doc_name,doc_dep;
 
 
 
@@ -35,6 +36,7 @@ public class doclog extends AppCompatActivity {
         tv2 = findViewById(R.id.tv2);
 
         B3.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 created();
@@ -45,80 +47,81 @@ public class doclog extends AppCompatActivity {
         public void created( )
         {
 
-            f=0;
-
             if (E1.getText().toString().trim().length()==0)
             {
-                f++;
                 E1.setError("Doctor ID is not entered");
                 E1.requestFocus();
             }
             else if (E2.getText().toString().trim().length()==0)
             {
-                f++;
                 E2.setError("Password is not entered");
                 E2.requestFocus();
             }
             else
             {
-                final FirebaseDatabase database = FirebaseDatabase.getInstance();
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference ref = database.getReference("docdb");
 
                 doc_id = String.valueOf(E1.getText());
+                entered_pass = String.valueOf(E2.getText());
 
-
-                ref.addValueEventListener(new ValueEventListener() {
+                ref.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if(String.valueOf(dataSnapshot.child("d1").child("id").getValue()).equals(doc_id)) {
                             doc_pass = String.valueOf(dataSnapshot.child("d1").child("password").getValue());
                             doc_name = String.valueOf(dataSnapshot.child("d1").child("name").getValue());
                             doc_dep =  String.valueOf(dataSnapshot.child("d1").child("department").getValue());
                         }
-                            else if(String.valueOf(dataSnapshot.child("d2").child("id").getValue()).equals(doc_id)) {
+                        else if(String.valueOf(dataSnapshot.child("d2").child("id").getValue()).equals(doc_id)) {
                             doc_pass = String.valueOf(dataSnapshot.child("d2").child("password").getValue());
                             doc_name = String.valueOf(dataSnapshot.child("d2").child("name").getValue());
                             doc_dep =  String.valueOf(dataSnapshot.child("d3").child("department").getValue());
                         }
-                            else if(String.valueOf(dataSnapshot.child("d3").child("id").getValue()).equals(doc_id)) {
+                        else if(String.valueOf(dataSnapshot.child("d3").child("id").getValue()).equals(doc_id)) {
                             doc_pass = String.valueOf(dataSnapshot.child("d3").child("password").getValue());
                             doc_name = String.valueOf(dataSnapshot.child("d3").child("name").getValue());
                             doc_dep =  String.valueOf(dataSnapshot.child("d3").child("department").getValue());
                         }
-                            else if(String.valueOf(dataSnapshot.child("d4").child("id").getValue()).equals(doc_id)) {
+                        else if(String.valueOf(dataSnapshot.child("d4").child("id").getValue()).equals(doc_id)) {
                             doc_pass = String.valueOf(dataSnapshot.child("d4").child("password").getValue());
                             doc_name = String.valueOf(dataSnapshot.child("d4").child("name").getValue());
                             doc_dep =  String.valueOf(dataSnapshot.child("d4").child("department").getValue());
                         }
 
+
+                        if(entered_pass.equals(doc_pass)) {
+
+                            Toast.makeText(getApplicationContext(), "Welcome "+doc_name+" of Department "+doc_dep, Toast.LENGTH_SHORT).show();
+
+                            Intent i = new Intent(getApplicationContext(),patient_list.class);
+                            Bundle B = new Bundle();
+                            B.putString("name",doc_name);
+                            B.putString("id",doc_id);
+                            i.putExtras(B);
+                            startActivity(i);
+
+                        }
+                        else {
+
+                            Toast.makeText(getApplicationContext(),  "invalid credentials", Toast.LENGTH_SHORT).show();
+                            E1.setText("");
+                            E2.setText("");
+                        }
+
                     }
 
                     @Override
-                    public void onCancelled(DatabaseError databaseError) {
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
                         System.out.println("The read failed: " + databaseError.getCode());
                     }
                 });
 
-                    if(E2.getText().toString().equals(doc_pass)) {
 
-                    Toast.makeText(this, "Welcome "+doc_name+" of Department "+doc_dep, Toast.LENGTH_SHORT).show();
 
-                    Intent i = new Intent(this,display.class);
-                    Bundle B = new Bundle();
-                    B.putString("name",doc_name);
-                    i.putExtras(B);
-                    startActivity(i);
+            }}
 
-                    //E1.setText("");
-                   // E2.setText("");
-                }
-                else {
 
-                    Toast.makeText(this,  "invalid credentials", Toast.LENGTH_SHORT).show();
-                }
-
-            }
-             }
 
     }
 

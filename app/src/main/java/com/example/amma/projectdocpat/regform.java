@@ -1,21 +1,14 @@
 package com.example.amma.projectdocpat;
 
-import android.content.ContentValues;
 import android.content.DialogInterface;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -24,9 +17,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import java.text.DateFormat;
-import java.util.Date;
 
 public class regform extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -40,17 +30,9 @@ public class regform extends AppCompatActivity implements AdapterView.OnItemSele
     String s7;
     String s8;
     String s9;
-    int id;
-    AlertDialog.Builder b;
-    SQLiteDatabase db;
-    ContentValues cv;
-    Cursor c;
-    int f;
     Button submit;
-    Button disp;
 
-
-int nopt;
+    int nopt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +51,7 @@ int nopt;
         submit.setOnClickListener(new View.OnClickListener() {
                                       @Override
                                       public void onClick(View view) {
+
                                           AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(regform.this);
                                           alertDialogBuilder.setTitle("Confirm");
                                           alertDialogBuilder.setMessage("Confirm to submit Form");

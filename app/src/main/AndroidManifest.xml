@@ -17,9 +17,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".doclog" />
-        <activity android:name=".regform"
-          />
-        <activity android:name=".display" />
+        <activity android:name=".regform" />
+        <activity android:name=".patient_list" />
+        <activity android:name=".display_patient"></activity>
     </application>
 
 </manifest>
