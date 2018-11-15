@@ -84,8 +84,6 @@ public class regform extends AppCompatActivity implements AdapterView.OnItemSele
                                                       if (s1.trim().matches(str)) {
                                                           Toast.makeText(regform.this, "use characters", Toast.LENGTH_SHORT).show();
                                                       }
-
-
                                                   }
                                                   else if (s2.trim().length()==0)
                                                   {
@@ -122,14 +120,13 @@ public class regform extends AppCompatActivity implements AdapterView.OnItemSele
 
 
                                                   final FirebaseDatabase database = FirebaseDatabase.getInstance();
-                                                  DatabaseReference dbref = database.getReference("ptno");
-                                                  dbref.setValue(nopt+1);
-                                                  dbref.addValueEventListener(new ValueEventListener() {
+                                                  final DatabaseReference dbref = database.getReference("ptno");
+                                                  dbref.addListenerForSingleValueEvent(new ValueEventListener() {
                                                       @Override
                                                       public void onDataChange(DataSnapshot dataSnapshot) {
 
-
                                                           nopt = Integer.parseInt(String.valueOf(dataSnapshot.getValue()));
+                                                          dbref.setValue(nopt+1);
                                                           DatabaseReference patRef = database.getReference("patient"+ nopt);
                                                           patRef.child("firstname").setValue(s1);
                                                           patRef.child("lastname").setValue(s2);
@@ -139,7 +136,9 @@ public class regform extends AppCompatActivity implements AdapterView.OnItemSele
                                                           patRef.child("doctor").setValue(s7);
                                                           patRef.child("symptoms").setValue(s8);
                                                           patRef.child("phone_no").setValue(s9);
+
                                                       }
+
                                                       @Override
                                                       public void onCancelled(DatabaseError error) {
                                                           Toast.makeText(regform.this, "Unable to fetch value.please restart app.", Toast.LENGTH_SHORT).show();
