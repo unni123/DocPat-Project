@@ -92,7 +92,7 @@ public class doclog extends AppCompatActivity {
 
                         if(entered_pass.equals(doc_pass)) {
 
-                            Toast.makeText(getApplicationContext(), "Welcome "+doc_name+" of Department "+doc_dep, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Welcome "+doc_name, Toast.LENGTH_SHORT).show();
 
                             Intent i = new Intent(getApplicationContext(),patient_list.class);
                             Bundle B = new Bundle();

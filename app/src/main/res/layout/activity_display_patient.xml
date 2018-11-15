@@ -51,4 +51,22 @@
         android:text="TextView"
         android:textSize="24sp" />
 
+    <TextView
+        android:id="@+id/tv6"
+        android:layout_width="135dp"
+        android:layout_height="65dp"
+        android:layout_below="@+id/tv5"
+        android:layout_centerHorizontal="true"
+        android:text="TextView"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/tv7"
+        android:layout_width="135dp"
+        android:layout_height="65dp"
+        android:layout_below="@+id/tv6"
+        android:layout_centerHorizontal="true"
+        android:text="TextView"
+        android:textSize="24sp" />
+
 </RelativeLayout>

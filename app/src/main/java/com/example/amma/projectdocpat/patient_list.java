@@ -27,9 +27,6 @@ public class patient_list extends AppCompatActivity {
         Intent i = getIntent();
         Bundle b = i.getExtras();
         final String name =b.getString("name");
-        Toast.makeText(this, name, Toast.LENGTH_SHORT).show();
-
-
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference dbref = database.getReference();
 
@@ -71,7 +68,7 @@ public class patient_list extends AppCompatActivity {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                        for(int j=0;i<flag;j++)
+                        for(int j=0;j<flag;j++)
                         {
                             if(j==i)
                             {
@@ -82,9 +79,12 @@ public class patient_list extends AppCompatActivity {
                                 B.putString("age",pt_arr[j].getAge());
                                 B.putString("dob",pt_arr[j].getDob());
                                 B.putString("address",pt_arr[j].getAddress());
+                                B.putString("symptoms",pt_arr[j].getSymptoms());
+                                B.putString("phone_no",pt_arr[j].getPhone_no());
                                 intent.putExtras(B);
                                 startActivity(intent);
                             }
+
                         }
                     }
                 });
@@ -103,19 +103,23 @@ public class patient_list extends AppCompatActivity {
 
 class pat_details
 {
-    String firstname;
-    String lastname;
-    String age;
-    String dob;
-    String address;
+    private String firstname;
+    private String lastname;
+    private String age;
+    private String dob;
+    private String address;
+    private String symptoms;
+    private String phone_no;
 
-    public pat_details()
+    pat_details()
     {
         this.firstname="";
         this.lastname="";
         this.age="";
         this.dob="";
         this.address="";
+        this.symptoms="";
+        this.phone_no="";
     }
 
     public String getFirstname() {
@@ -173,8 +177,4 @@ class pat_details
     public void setPhone_no(String phone_no) {
         this.phone_no = phone_no;
     }
-
-    String symptoms;
-    String phone_no;
-
 }
