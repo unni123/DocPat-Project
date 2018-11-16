@@ -21,9 +21,14 @@ public class doclog extends AppCompatActivity {
     Button B3;
     TextView tv1,tv2;
     int f;
-    String doc_id,entered_pass,doc_pass,doc_name,doc_dep;
+    String doc_id,entered_pass,doc_pass,doc_name;
 
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(getApplicationContext(),main.class));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,27 +73,15 @@ public class doclog extends AppCompatActivity {
                 ref.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if(String.valueOf(dataSnapshot.child("d1").child("id").getValue()).equals(doc_id)) {
-                            doc_pass = String.valueOf(dataSnapshot.child("d1").child("password").getValue());
-                            doc_name = String.valueOf(dataSnapshot.child("d1").child("name").getValue());
-                            doc_dep =  String.valueOf(dataSnapshot.child("d1").child("department").getValue());
-                        }
-                        else if(String.valueOf(dataSnapshot.child("d2").child("id").getValue()).equals(doc_id)) {
-                            doc_pass = String.valueOf(dataSnapshot.child("d2").child("password").getValue());
-                            doc_name = String.valueOf(dataSnapshot.child("d2").child("name").getValue());
-                            doc_dep =  String.valueOf(dataSnapshot.child("d3").child("department").getValue());
-                        }
-                        else if(String.valueOf(dataSnapshot.child("d3").child("id").getValue()).equals(doc_id)) {
-                            doc_pass = String.valueOf(dataSnapshot.child("d3").child("password").getValue());
-                            doc_name = String.valueOf(dataSnapshot.child("d3").child("name").getValue());
-                            doc_dep =  String.valueOf(dataSnapshot.child("d3").child("department").getValue());
-                        }
-                        else if(String.valueOf(dataSnapshot.child("d4").child("id").getValue()).equals(doc_id)) {
-                            doc_pass = String.valueOf(dataSnapshot.child("d4").child("password").getValue());
-                            doc_name = String.valueOf(dataSnapshot.child("d4").child("name").getValue());
-                            doc_dep =  String.valueOf(dataSnapshot.child("d4").child("department").getValue());
-                        }
 
+                        String[] doc_ids=new String[]{"d1","d2","d3","d4"};
+                        for(int i=0;i<doc_ids.length;i++)
+                        {
+                            if(String.valueOf(dataSnapshot.child(doc_ids[i]).child("id").getValue()).equals(doc_id)) {
+                                doc_pass = String.valueOf(dataSnapshot.child(doc_ids[i]).child("password").getValue());
+                                doc_name = String.valueOf(dataSnapshot.child(doc_ids[i]).child("name").getValue());
+                            }
+                        }
 
                         if(entered_pass.equals(doc_pass)) {
 

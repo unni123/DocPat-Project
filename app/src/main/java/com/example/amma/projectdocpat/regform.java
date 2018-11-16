@@ -121,13 +121,22 @@ public class regform extends AppCompatActivity implements AdapterView.OnItemSele
 
 
                                                   final FirebaseDatabase database = FirebaseDatabase.getInstance();
-                                                  final DatabaseReference dbref = database.getReference("ptno");
+                                                  final DatabaseReference dbref = database.getReference();
                                                   dbref.addListenerForSingleValueEvent(new ValueEventListener() {
                                                       @Override
                                                       public void onDataChange(DataSnapshot dataSnapshot) {
 
-                                                          nopt = Integer.parseInt(String.valueOf(dataSnapshot.getValue()))+1;
-                                                          dbref.setValue(nopt);
+                                                          if(dataSnapshot.getChildrenCount()==2)
+                                                          {
+                                                              dbref.child("ptno").setValue(0);
+                                                              nopt=1;
+                                                          }
+                                                          else
+                                                          {
+                                                              nopt = Integer.parseInt(String.valueOf(dataSnapshot.child("ptno").getValue()))+1;
+                                                          }
+
+                                                          dbref.child("ptno").setValue(nopt);
                                                           DatabaseReference patRef = database.getReference("patient"+ nopt);
                                                           patRef.child("firstname").setValue(s1);
                                                           patRef.child("lastname").setValue(s2);
@@ -137,8 +146,6 @@ public class regform extends AppCompatActivity implements AdapterView.OnItemSele
                                                           patRef.child("doctor").setValue(s7);
                                                           patRef.child("symptoms").setValue(s8);
                                                           patRef.child("phone_no").setValue(s9);
-
-
                                                       }
 
                                                       @Override

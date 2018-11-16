@@ -19,6 +19,13 @@ public class patient_list extends AppCompatActivity {
 
     String[] mobileArray={""};
     int flag;
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(getApplicationContext(),doclog.class));
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +45,7 @@ public class patient_list extends AppCompatActivity {
 
                 for(int i = 1;i <= ptno;i++) {
                    String doc_name = String.valueOf(dataSnapshot.child("patient" + i).child("doctor").getValue());
-                   if (doc_name.equals(name))
+                   if(doc_name.equals(name))
                        flag++;
                }
 
@@ -61,11 +68,11 @@ public class patient_list extends AppCompatActivity {
                         j++;
                     }
                 }
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getBaseContext(),R.layout.activity_listview, mobileArray);
+                ArrayAdapter<String> adapter = new ArrayAdapter<>(getBaseContext(), R.layout.activity_listview, mobileArray);
                 ListView listView = findViewById(R.id.mobile_list);
                 listView.setAdapter(adapter);
 
-                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                listView.setOnItemClickListener( new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
@@ -82,6 +89,7 @@ public class patient_list extends AppCompatActivity {
                                 B.putString("address",pt_arr[j].getAddress());
                                 B.putString("symptoms",pt_arr[j].getSymptoms());
                                 B.putString("phone_no",pt_arr[j].getPhone_no());
+                                B.putString("doc_name",name);
                                 intent.putExtras(B);
                                 startActivity(intent);
                             }
