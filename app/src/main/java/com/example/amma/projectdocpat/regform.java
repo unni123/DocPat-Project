@@ -117,6 +117,7 @@ public class regform extends AppCompatActivity implements AdapterView.OnItemSele
                                                           Toast.makeText(regform.this, "invalid entry,use numbers", Toast.LENGTH_SHORT).show();
                                                       }
                                                   }
+                                                  else{
 
 
                                                   final FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -125,8 +126,8 @@ public class regform extends AppCompatActivity implements AdapterView.OnItemSele
                                                       @Override
                                                       public void onDataChange(DataSnapshot dataSnapshot) {
 
-                                                          nopt = Integer.parseInt(String.valueOf(dataSnapshot.getValue()));
-                                                          dbref.setValue(nopt+1);
+                                                          nopt = Integer.parseInt(String.valueOf(dataSnapshot.getValue()))+1;
+                                                          dbref.setValue(nopt);
                                                           DatabaseReference patRef = database.getReference("patient"+ nopt);
                                                           patRef.child("firstname").setValue(s1);
                                                           patRef.child("lastname").setValue(s2);
@@ -137,6 +138,7 @@ public class regform extends AppCompatActivity implements AdapterView.OnItemSele
                                                           patRef.child("symptoms").setValue(s8);
                                                           patRef.child("phone_no").setValue(s9);
 
+
                                                       }
 
                                                       @Override
@@ -146,7 +148,7 @@ public class regform extends AppCompatActivity implements AdapterView.OnItemSele
                                                   });
 
                                                   Toast.makeText(regform.this, "Booking Submitted.,Consultation time will be informed", Toast.LENGTH_SHORT).show();
-                                              }
+                                              }}
                                           });
                                           alertDialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                                               @Override

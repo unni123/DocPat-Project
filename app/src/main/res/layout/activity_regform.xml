@@ -68,8 +68,7 @@
         android:layout_height="wrap_content"
 
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="223dp" />
+        android:layout_below="@+id/houseid" />
 
 
     <EditText
@@ -95,11 +94,9 @@
         android:id="@+id/sb"
         android:layout_width="113dp"
         android:layout_height="36dp"
-        android:layout_alignParentBottom="true"
 
         android:layout_alignParentStart="true"
-
-        android:layout_marginBottom="153dp"
+        android:layout_below="@+id/dobid"
         android:text="Submit" />
 
 </RelativeLayout>

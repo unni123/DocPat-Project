@@ -45,7 +45,7 @@ public class patient_list extends AppCompatActivity {
                 mobileArray = new String[flag];
                 final pat_details[] pt_arr = new pat_details[flag];
 
-                for(int i = 1,j=0;i <= ptno;i++,j++) {
+                for(int i = 1,j=0;i <= ptno;i++) {
                     String doc_name = String.valueOf(dataSnapshot.child("patient" + i).child("doctor").getValue());
                     if (doc_name.equals(name)) {
                         pt_arr[j] = new pat_details();
@@ -58,6 +58,7 @@ public class patient_list extends AppCompatActivity {
                         pt_arr[j].setPhone_no(String.valueOf(dataSnapshot.child("patient" + i).child("phone_no").getValue()));
 
                         mobileArray[j] = pt_arr[j].getFirstname();
+                        j++;
                     }
                 }
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>(getBaseContext(),R.layout.activity_listview, mobileArray);

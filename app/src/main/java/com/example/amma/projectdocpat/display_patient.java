@@ -44,7 +44,7 @@ public class display_patient extends AppCompatActivity {
         t3.setText(age);
         t4.setText(dob);
         t5.setText(address);
-        t5.setText(symptoms);
-        t5.setText(phone_no);
+        t6.setText(symptoms);
+        t7.setText(phone_no);
     }
 }
