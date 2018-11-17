@@ -104,6 +104,12 @@ public class display_patient extends AppCompatActivity {
                             dbref.child("patient"+i).removeValue();
                         }
 
+                        Toast.makeText(display_patient.this, "Patient removed from list", Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(getApplicationContext(),patient_list.class);
+                        Bundle B = new Bundle();
+                        B.putString("name",doc_name);
+                        i.putExtras(B);
+                        startActivity(i);
                     }
 
                     @Override

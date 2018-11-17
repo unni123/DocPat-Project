@@ -49,6 +49,9 @@ public class patient_list extends AppCompatActivity {
                        flag++;
                }
 
+               if (flag==0)
+                   Toast.makeText(patient_list.this, "Patient list empty", Toast.LENGTH_SHORT).show();
+
                 mobileArray = new String[flag];
                 final pat_details[] pt_arr = new pat_details[flag];
 
@@ -93,7 +96,6 @@ public class patient_list extends AppCompatActivity {
                                 intent.putExtras(B);
                                 startActivity(intent);
                             }
-
                         }
                     }
                 });
@@ -103,10 +105,6 @@ public class patient_list extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Unable to fetch value.please restart app.", Toast.LENGTH_SHORT).show();
             }
         });
-
-
-
-
     }
 }
 

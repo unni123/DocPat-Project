@@ -6,68 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".display_patient">
 
-    <TextView
-        android:id="@+id/tv1"
-        android:layout_width="135dp"
-        android:layout_height="65dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="TextView"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/tv2"
-        android:layout_width="135dp"
-        android:layout_height="65dp"
-        android:layout_below="@+id/tv1"
-        android:layout_centerHorizontal="true"
-        android:text="TextView"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/tv3"
-        android:layout_width="135dp"
-        android:layout_height="65dp"
-        android:layout_below="@+id/tv2"
-        android:layout_centerHorizontal="true"
-        android:text="TextView"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/tv4"
-        android:layout_width="135dp"
-        android:layout_height="65dp"
-        android:layout_centerInParent="true"
-        android:text="TextView"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/tv5"
-        android:layout_width="135dp"
-        android:layout_height="65dp"
-        android:layout_below="@+id/tv4"
-        android:layout_centerHorizontal="true"
-        android:text="TextView"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/tv6"
-        android:layout_width="135dp"
-        android:layout_height="65dp"
-        android:layout_below="@+id/tv5"
-        android:layout_centerHorizontal="true"
-        android:text="TextView"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/tv7"
-        android:layout_width="135dp"
-        android:layout_height="65dp"
-        android:layout_below="@+id/tv6"
-        android:layout_centerHorizontal="true"
-        android:text="TextView"
-        android:textSize="18sp" />
+    <Button
+        android:id="@+id/b1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="78dp"
+        android:layout_marginStart="70dp"
+        android:text="Home" />
 
     <Button
         android:id="@+id/b2"
@@ -75,16 +22,209 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/b1"
-        android:layout_marginEnd="70dp"
+        android:layout_marginEnd="80dp"
         android:text="Consulted" />
 
-    <Button
-        android:id="@+id/b1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="14dp"
-        android:layout_toStartOf="@+id/tv1"
-        android:text="Home" />
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:divider="@color/colorPrimary">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Patient Details :-"
+                android:textColor="@color/colorPrimary"
+                android:textSize="24sp"
+                android:typeface="serif"
+                app:fontFamily="sans-serif"
+                tools:text="Patient Details :-" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/cell_shape"
+                android:text="First Name    "
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/tv3"
+                android:background="@drawable/cell_shape"
+                android:text="TextView"
+                android:textSize="18sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/textView4"
+                android:layout_alignStart="@+id/b1"
+                android:background="@drawable/cell_shape"
+                android:text="Last  Name   "
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/tv3"
+                android:layout_alignStart="@+id/tv3"
+                android:text="TextView"
+                android:background="@drawable/cell_shape"
+                android:textSize="18sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/textView5"
+                android:layout_alignStart="@+id/b1"
+                android:background="@drawable/cell_shape"
+                android:text="Age                 "
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/tv4"
+                android:layout_alignStart="@+id/tv4"
+                android:text="TextView"
+                android:background="@drawable/cell_shape"
+                android:textSize="18sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignStart="@+id/b1"
+                android:background="@drawable/cell_shape"
+                android:text="Date Of Birth "
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/tv5"
+                android:layout_alignStart="@+id/tv5"
+                android:text="TextView"
+                android:background="@drawable/cell_shape"
+                android:textSize="18sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignStart="@+id/b1"
+                android:layout_centerVertical="true"
+                android:background="@drawable/cell_shape"
+                android:text="Address         "
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:text="TextView"
+                android:background="@drawable/cell_shape"
+                android:textSize="18sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/textView7"
+                android:layout_toStartOf="@+id/b2"
+                android:background="@drawable/cell_shape"
+                android:text="Phone no        "
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv7"
+                android:layout_width="197dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_alignTop="@+id/textView"
+                android:layout_marginEnd="36dp"
+                android:background="@drawable/cell_shape"
+                android:text="TextView"
+                android:textSize="18sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/tv6"
+                android:layout_toStartOf="@+id/b2"
+                android:background="@drawable/cell_shape"
+                android:text="Symptoms     "
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignStart="@+id/tv7"
+                android:layout_centerVertical="true"
+                android:background="@drawable/cell_shape"
+                android:text="TextView"
+                android:textSize="18sp" />
+
+        </TableRow>
+
+    </TableLayout>
 
 </RelativeLayout>

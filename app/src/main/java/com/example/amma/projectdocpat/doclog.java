@@ -90,7 +90,6 @@ public class doclog extends AppCompatActivity {
                             Intent i = new Intent(getApplicationContext(),patient_list.class);
                             Bundle B = new Bundle();
                             B.putString("name",doc_name);
-                            B.putString("id",doc_id);
                             i.putExtras(B);
                             startActivity(i);
 
