@@ -90,7 +90,7 @@ public class regform extends AppCompatActivity implements AdapterView.OnItemSele
                                                   {
                                                       Toast.makeText(regform.this, "Enter a valid Last name", Toast.LENGTH_SHORT).show();
                                                   }
-                                                  else if (s3.trim().length()==0||!dig_pattern.matcher(s3.trim()).matches()||Integer.valueOf(s3.trim())<15 || Integer.valueOf(s3.trim())>80)
+                                                  else if (s3.trim().length()==0||!dig_pattern.matcher(s3.trim()).matches()||Integer.valueOf(s3.trim())<0 || Integer.valueOf(s3.trim())>100)
                                                   {
                                                       Toast.makeText(regform.this, "Enter a valid Age", Toast.LENGTH_SHORT).show();
                                                   }
