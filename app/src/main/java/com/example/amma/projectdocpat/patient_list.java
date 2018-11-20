@@ -49,9 +49,6 @@ public class patient_list extends AppCompatActivity {
                        flag++;
                }
 
-               if (flag==0)
-                   Toast.makeText(patient_list.this, "Patient list empty", Toast.LENGTH_SHORT).show();
-
                 mobileArray = new String[flag];
                 final pat_details[] pt_arr = new pat_details[flag];
 
